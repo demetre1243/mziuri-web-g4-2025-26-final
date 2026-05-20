@@ -1,0 +1,68 @@
+header{
+    width: 1440px;
+    height: 440px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    gap: 50px;
+
+}
+.container{
+    width: 1216px;
+    height: 270px;
+    gap: 260px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+
+}
+.login{
+    width: 1216px;
+    height: 270px;
+
+}
+
+.Form{
+    width: 955px;
+    height: 308px;
+    top: 528px;
+    left: 243px;
+    border-width: 1px;
+
+}
+.email{
+    width: 955px;
+    height: 76px;
+    top: 528px;
+    left: 243px;
+    border-width: 1px;
+    border-radius: 2px;
+
+}
+.password{
+    width: 955px;
+    height: 76px;
+    top: 528px;
+    left: 243px;
+    border-width: 1px;
+    border-radius: 2px;
+}
+.button{
+    width: 955px;
+    height: 76px;
+    top: 528px;
+    left: 243px;
+    border-width: 1px;
+    border-radius: 2px;
+}
+.nav-list-wrapper{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(26, 26, 26, 1);
+}
