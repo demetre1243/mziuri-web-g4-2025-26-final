@@ -1,35 +1,43 @@
 var express = require('express');
 var router = express.Router();
-const User= require('../models/User');
+const User = require('../models/User');
 
-router.get('/', function(req, res, next) {
-    res.render('register', {message: ''});
-
+router.get('/', function (req, res, next) {
+    if (req.session.user) {
+        return res.redirect('/');
+    }
+    res.render('register', {error: null});
 });
 
 router.post('/', async function (req, res, next) {
     const {email, password, confirmPassword} = req.body;
-    if(password !== confirmPassword) {
-        return res.render('register', {message:'Passwords dont match!'});
+
+    if (confirmPassword !== password) {
+        res.render('register', {error: 'Passwords do not match'});
     }
-    if(password.length < 8) {
-        return res.render('register', {message:'Password must be at least 8 characters long!'});
+
+    if (password.length < 8) {
+        return res.render('register', {error: 'Password should contain 8 characters'});
     }
 
     try {
-     const user = await User.findOne({email: email});
-     if(user) {
-         return res.redirect('register', {massage: "user already exist!"});
-     }
-     const newUser= new User({email, password})
-     await newUser.save();
+        const users = await User.find({email});
 
-     req.session.user = email;
+        if (users.length > 0) {
+            return res.render('register', {error: 'Email already registered'});
+        }
 
-     res.redirect('/blogs');
+        const salt = bcrypt.genSaltSync(10);
+        const hashedPassword = bcrypt.hashSync(password, salt);
 
-    }catch(err) {
-        console.log()
+        const newUser = new User({email, password: hashedPassword})
+        await newUser.save();
+
+        req.session.user = {email}
+
+        res.redirect('/blogs');
+    } catch (e) {
+        console.log(e)
     }
 });
 
