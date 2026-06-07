@@ -18,5 +18,20 @@
     "mongoose": "^9.6.2",
     "morgan": "~1.9.1",
     "nodemon": "^3.1.14"
-  }
+  },
+  "description": "",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demetre1243/mziuri-web-g4-2025-26-final.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/demetre1243/mziuri-web-g4-2025-26-final/issues"
+  },
+  "homepage": "https://github.com/demetre1243/mziuri-web-g4-2025-26-final#readme"
 }
