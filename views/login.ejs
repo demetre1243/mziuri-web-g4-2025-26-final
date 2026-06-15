@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sen:wght@400..800&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="./images/blog-icon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon">
 </head>
 <body>
 
@@ -26,9 +26,9 @@
 
     <form action="/login" method="POST">
         <input type="email" name="email" placeholder="Email" required>
-        <div class="password-wrapper">
-            <input type="password" name="password" id="password" placeholder="Password" required>
-            <img src="/images/eye.svg" class="toggle-password" onclick="const i = document.getElementById('password'); i.type = i.type === 'password' ? 'text' : 'password'" alt="Toggle Password">
+        <div class="password-input-wrapper">
+            <input class="password-input" type="password" name="password" placeholder="Password" autocomplete="hidden" required>
+            <img class="toggle-password-icon" src='/images/show-password-icon.svg' alt="Show Password">
         </div>
         <button type="submit">Sign In</button>
     </form>
@@ -37,6 +37,8 @@
 </div>
 
 <%- include('partials/footer'); %>
+
+<script src="/javascripts/auth.js"></script>
 
 </body>
 </html>
