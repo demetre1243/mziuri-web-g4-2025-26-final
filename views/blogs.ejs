@@ -23,122 +23,85 @@
 
 <div class="container recent-blogs-wrapper">
     <h4 class="title">Recent blog posts</h4>
-
-    <% if (typeof blogs !== 'undefined' && blogs && blogs.length > 0) { %>
-        <div class="row-1">
-            <div class="col-1">
-                <div>
-                    <figure class="thumbnail-wrapper">
-                        <img src="/images/thumbnails/thumbnail-1.png" alt="Thumbnail 1">
-                    </figure>
-                    <div class="blog-meta">
-                        <p><%= blogs[0].author?.email || 'No Author' %></p> <span> • </span>
-                        <p>
-                            <%= blogs[0].date ? blogs[0].date.getDate() : '' %>
-                            <%= blogs[0].date ? blogs[0].date.toLocaleString('default', {month: 'short'}) : '' %>
-                            <%= blogs[0].date ? blogs[0].date.getFullYear() : '' %>
-                        </p>
-                    </div>
-                    <figure class="blog-title-wrapper">
-                        <a href="/blogs/<%= blogs[0]._id %>"><%= blogs[0].title %></a>
-                        <img src="/images/arrow-up-icon.svg" alt="Arrow up icon">
-                    </figure>
-                    <div class="description-wrapper">
-                        <p><%= blogs[0].description %></p>
-                    </div>
+    <div class="row-1">
+        <div class="col-1">
+            <div>
+                <figure class="thumbnail-wrapper">
+                    <img src="/images/thumbnails/thumbnail-1.png" alt="Thumbnail 1">
+                </figure>
+                <div class="blog-meta">
+                    <p><%= blogs[0].author.email %></p> <span> • </span>
+                    <p><%= blogs[0].date.getDate() %> <%= blogs[0].date.toLocaleString('default', {month: 'short'}) %> <%= blogs[0].date.getFullYear() %></p>
                 </div>
-            </div>
-
-            <div class="col-2">
-                <% if (blogs[1]) { %>
-                    <div class="small-card">
-                        <figure>
-                            <img src="/images/thumbnails/thumbnail-2.png" alt="Thumbnail 2">
-                        </figure>
-                        <div class="content-wrapper">
-                            <p class="meta">
-                                <%= blogs[1].author?.email || 'No Author' %> •
-                                <%= blogs[1].date ? blogs[1].date.getDate() : '' %>
-                                <%= blogs[1].date ? blogs[1].date.toLocaleString('default', {month: 'short'}) : '' %>
-                                <%= blogs[1].date ? blogs[1].date.getFullYear() : '' %>
-                            </p>
-                            <a class="title" href="/blogs/<%= blogs[1]._id %>"><%= blogs[1].title %></a>
-                            <p class="description"><%= blogs[1].description %></p>
-                        </div>
-                    </div>
-                <% } %>
-
-                <% if (blogs[2]) { %>
-                    <div class="small-card">
-                        <figure>
-                            <img src="/images/thumbnails/thumbnail-3.png" alt="Thumbnail 3">
-                        </figure>
-                        <div class="content-wrapper">
-                            <p class="meta">
-                                <%= blogs[2].author?.email || 'No Author' %> •
-                                <%= blogs[2].date ? blogs[2].date.getDate() : '' %>
-                                <%= blogs[2].date ? blogs[2].date.toLocaleString('default', {month: 'short'}) : '' %>
-                                <%= blogs[2].date ? blogs[2].date.getFullYear() : '' %>
-                            </p>
-                            <a class="title" href="/blogs/<%= blogs[2]._id %>"><%= blogs[2].title %></a>
-                            <p class="description"><%= blogs[2].description %></p>
-                        </div>
-                    </div>
-                <% } %>
+                <figure class="blog-title-wrapper">
+                    <a href="/blogs/<%= blogs[0]._id %>"><%= blogs[0].title %></a>
+                    <img src="/images/arrow-up-icon.svg" alt="Arrow up icon">
+                </figure>
+                <div class="description-wrapper">
+                    <p><%= blogs[0].description %></p>
+                </div>
             </div>
         </div>
-
-        <% if (blogs[3]) { %>
-            <div class="wide-card">
+        <div class="col-2">
+            <div class="small-card">
                 <figure>
-                    <img src="/images/thumbnails/thumbnail-4.png" alt="Thumbnail 4">
+                    <img src="/images/thumbnails/thumbnail-2.png" alt="Thumbnail 2">
                 </figure>
                 <div class="content-wrapper">
-                    <p class="meta">
-                        <%= blogs[3].author?.email || 'No Author' %> •
-                        <%= blogs[3].date ? blogs[3].date.getDate() : '' %>
-                        <%= blogs[3].date ? blogs[3].date.toLocaleString('default', {month: 'short'}) : '' %>
-                        <%= blogs[3].date ? blogs[3].date.getFullYear() : '' %>
-                    </p>
-                    <div class="blog-title-wrapper">
-                        <a class="title" href="/blogs/<%= blogs[3]._id %>"><%= blogs[3].title %></a>
-                        <img src="/images/arrow-up-icon.svg" alt="Arrow up icon">
-                    </div>
-                    <p class="description"><%= blogs[3].description %></p>
+                    <p class="meta"><%= blogs[1].author.email %>
+                        • <%= blogs[1].date.getDate() %> <%= blogs[1].date.toLocaleString('default', {month: 'short'}) %> <%= blogs[1].date.getFullYear() %></p>
+                    <a class="title" href="/blogs/<%= blogs[1]._id %>"><%= blogs[1].title %></a>
+                    <p class="description"><%= blogs[1].description %></p>
                 </div>
             </div>
-        <% } %>
-
-    <% } else { %>
-        <p>No blog posts found. <a href="/blogs/new">Create one here</a>.</p>
-    <% } %>
+            <div class="small-card">
+                <figure>
+                    <img src="/images/thumbnails/thumbnail-3.png" alt="Thumbnail 3">
+                </figure>
+                <div class="content-wrapper">
+                    <p class="meta"><%= blogs[2].author.email %>
+                        • <%= blogs[2].date.getDate() %> <%= blogs[2].date.toLocaleString('default', {month: 'short'}) %> <%= blogs[2].date.getFullYear() %></p>
+                    <a class="title" href="/blogs/<%= blogs[2]._id %>"><%= blogs[2].title %></a>
+                    <p class="description"><%= blogs[2].description %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wide-card">
+        <figure>
+            <img src="/images/thumbnails/thumbnail-4.png" alt="Thumbnail 4">
+        </figure>
+        <div class="content-wrapper">
+            <p class="meta"><%= blogs[3].author.email %>
+                • <%= blogs[3].date.getDate() %> <%= blogs[3].date.toLocaleString('default', {month: 'short'}) %> <%= blogs[3].date.getFullYear() %></p>
+            <div class="blog-title-wrapper">
+                <a class="title" href="/blogs/<%= blogs[3]._id %>"><%= blogs[3].title %></a>
+                <img src="/images/arrow-up-icon.svg" alt="Arrow up icon">
+            </div>
+            <p class="description"><%= blogs[3].description %></p>
+        </div>
+    </div>
 </div>
 
 <section class="container all-blog-posts-wrapper">
     <h2 class="title">All blog posts</h2>
     <div class="blogs-grid">
-        <% if (typeof blogs !== 'undefined' && blogs && blogs.length > 0) { %>
-            <% blogs.forEach((blog) => { %>
-                <div class="standard-card">
-                    <figure>
-                        <img src="/images/thumbnails/thumbnail-5.png" alt="Thumbnail 5">
+        <% blogs.forEach((blog) => { %>
+            <div class="standard-card">
+                <figure>
+                    <img src="/images/thumbnails/thumbnail-5.png" alt="Thumbnail 5">
+                </figure>
+                <div>
+                    <p class="meta"><%= blog.author.email %>
+                        • <%= blog.date.getDate() %> <%= blog.date.toLocaleString('default', {month: 'short'}) %> <%= blog.date.getFullYear() %></p>
+                    <figure class="blog-title-wrapper">
+                        <a href="/blogs/<%= blog._id %>"><%= blog.title %></a>
+                        <img src="/images/arrow-up-icon.svg" alt="Arrow up icon">
                     </figure>
-                    <div>
-                        <p class="meta">
-                            <%= blog.author?.email || 'No Author' %> •
-                            <%= blog.date ? blog.date.getDate() : '' %>
-                            <%= blog.date ? blog.date.toLocaleString('default', {month: 'short'}) : '' %>
-                            <%= blog.date ? blog.date.getFullYear() : '' %>
-                        </p>
-                        <figure class="blog-title-wrapper">
-                            <a href="/blogs/<%= blog._id %>"><%= blog.title %></a>
-                            <img src="/images/arrow-up-icon.svg" alt="Arrow up icon">
-                        </figure>
-                        <p><%= blog.description %></p>
-                    </div>
+                    <p><%= blog.description %></p>
                 </div>
-            <% }) %>
-        <% } %>
+            </div>
+        <% }) %>
     </div>
 </section>
 
